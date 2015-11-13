@@ -1,3 +1,5 @@
+package com.fcj.jackson;
+
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -15,8 +17,10 @@ public class JacksonTest {
         ObjectMapper mapper = new ObjectMapper();
         String studentJSON = "{\"name\" : \"Beijing\", \"age\" : 21}";
         try{
-            Student student = mapper.readValue(studentJSON,Student.class);
+            // read
+            Student student = mapper.readValue(studentJSON, Student.class);
             System.out.println(student);
+            //  write
             studentJSON = mapper.writeValueAsString(student);
             System.out.println(studentJSON);
         }catch (JsonParseException e){
@@ -26,7 +30,13 @@ public class JacksonTest {
         }catch (IOException e){
 
         }
+
+
+
     }
+
+
+
 
 
 
